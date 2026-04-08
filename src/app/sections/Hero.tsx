@@ -8,6 +8,7 @@ import Img from "../components/Img";
 import Absolute from "../components/Absolute";
 import Flex from "../components/Flex";
 import Text from "../components/Text";
+import Seperator from "../components/Seperator";
 import Cta from "../components/Cta";
 
 const Hero = () => {
@@ -16,7 +17,7 @@ const Hero = () => {
             <Relative className="min-h-screen bg-white shadow-lg">
                 <Img
                 fill
-                src="/assets/me-6.jpeg"
+                src="/assets/me-6.avif"
                 alt="Tvořím weby pro řemeslníky a menší firmy - Vojtěch Oliva | vojtaoliva.cz"
                 // p-2.5 md:p-4 lg:p-6 rounded-2xl
                 className="object-cover"
@@ -35,7 +36,7 @@ const Hero = () => {
                             <Text>
                                 Vojtěch Oliva | Webový vývojář
                             </Text>
-                            <Wrapper className="max-w-[150px] h-[8px] bg-[#E5532D] mt-2.5" />
+                            <Seperator className="mt-2.5" />
                         </Wrapper>
                         <Text
                         type="heroHeading"
