@@ -20,8 +20,9 @@ const Hero = () => {
                 src="/assets/me-6.avif"
                 alt="Tvořím weby pro řemeslníky a menší firmy - Vojtěch Oliva | vojtaoliva.cz"
                 // p-2.5 md:p-4 lg:p-6 rounded-2xl
-                className="object-cover"
+                // loading="eager"
                 type="hero"
+                className="object-cover"
                 />
                 <Absolute className="bg-black/50" />
                 <Absolute variant="topZero" className="p-4 md:p-6 lg:p-8 bg-[#E5532D] rounded-br-full left-0" />
@@ -56,7 +57,7 @@ const Hero = () => {
                                     {
                                         href: "#kontakt",
                                         text: "Zadat poptávku"
-                                    }
+                                    },
                                 ].map((link, idx) => {
                                     const {
                                         href,
@@ -69,7 +70,9 @@ const Hero = () => {
                                         variant={idx === 0 ? "secondary" : "primary"}
                                         href={href}
                                         className="w-full">
-                                            {text}
+                                            <Text type="boldText">
+                                                {text}
+                                            </Text>
                                         </Cta>
                                     );
                                 })

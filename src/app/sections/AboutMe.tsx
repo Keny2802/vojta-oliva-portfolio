@@ -47,7 +47,9 @@ const AboutMe = () => {
                             </Text>
                         </Flex>
                         <Cta href="#kontakt">
-                            Získat cenovou nabídku
+                            <Text type="boldText">
+                                Získat cenovou nabídku
+                            </Text>
                         </Cta>
                     </Flex>
                     <Flex type="flexCol">
