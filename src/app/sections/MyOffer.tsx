@@ -32,7 +32,7 @@ const MyOffer = ({
                     <Absolute>
                         <Flex
                         type="flexCol"
-                        className="h-full justify-center items-center text-white">
+                        className="p-6 md:p-8 lg:p-10 h-full justify-center md:justify-end items-center text-white">
                             <Flex
                             type="flexCol"
                             className="justify-center items-center text-center">
