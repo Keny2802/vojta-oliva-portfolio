@@ -33,15 +33,19 @@ const MyOffer = ({
                         <Flex
                         type="flexCol"
                         className="h-full justify-center items-center text-white">
-                            <Text
-                            type="sectionHeading"
-                            className="max-w-3xl text-center">
-                                Uvažujete o novém webu nebo o její modernizaci?
-                            </Text>
-                            <Text>
-                                Zavolejte mi nebo napište, i Váš projekt posuneme jinam.
-                            </Text>
-                            <Flex className="mt-2.5 md:mt-3 lg:mt-4">
+                            <Flex
+                            type="flexCol"
+                            className="justify-center items-center text-center">
+                                <Text
+                                type="sectionHeading"
+                                className="max-w-3xl text-center">
+                                    Uvažujete o novém webu nebo o její modernizaci?
+                                </Text>
+                                <Text>
+                                    Zavolejte mi nebo napište, i Váš projekt posuneme jinam.
+                                </Text>
+                            </Flex>
+                            <Flex className="mt-2.5 md:mt-3 lg:mt-4 w-full">
                                 {
                                     [
                                         {
