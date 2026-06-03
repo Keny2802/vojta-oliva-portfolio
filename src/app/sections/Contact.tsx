@@ -6,29 +6,30 @@ import Section from "../components/Section";
 import Flex from "../components/Flex";
 import Text from "../components/Text";
 import Cta from "../components/Cta";
+import Wrapper from "../components/Wrapper";
 
-const Contact:FC<DefaultAttributes> = ({
+const Contact: FC<DefaultAttributes> = ({
     ...attrs
 }) => {
     return (
         <Fragment>
             <Section
-            {...attrs}
-            sectionBackground="secondary"
-            id="kontakt">
+                {...attrs}
+                sectionBackground="secondary"
+                id="kontakt">
                 <Flex
-                type="flexCol"
-                className="justify-center items-center text-center">
+                    type="flexCol"
+                    className="justify-center items-center text-center">
                     <Text
-                    type="boldText"
-                    className="uppercase">
+                        type="boldText"
+                        className="uppercase">
                         Kontakt
                     </Text>
                     <Text
-                    type="sectionHeading"
-                    fontVariant="playFairDisplay"
-                    textSpanning="s mnou"
-                    className="uppercase">
+                        type="sectionHeading"
+                        fontVariant="playFairDisplay"
+                        textSpanning="s mnou"
+                        className="uppercase">
                         Spojte se
                     </Text>
                     <Text className="text-balance">
@@ -53,23 +54,51 @@ const Contact:FC<DefaultAttributes> = ({
 
                                 return (
                                     <Cta
-                                    key={idx}
-                                    variant={idx === 0 ? "secondary" : "primary"}
-                                    href={href}
-                                    className={idx === 0 ? "border w-full rounded-full" : "w-full rounded-full"}>
+                                        key={idx}
+                                        variant={idx === 0 ? "secondary" : "primary"}
+                                        href={href}
+                                        className={idx === 0 ? "border w-full rounded-full" : "w-full rounded-full"}>
                                         <Flex
-                                        type="flexRowOnly"
-                                        className="justify-center md:justify-evenly items-center">
-                                            { href === "tel:+420737007626" && <TbPhone className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" /> }
-                                            { href === "mailto:info@vojtaoliva.cz" && <TbMail className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" /> }
+                                            type="flexRowOnly"
+                                            className="justify-center md:justify-evenly items-center">
+                                            {href === "tel:+420737007626" && <TbPhone className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />}
+                                            {href === "mailto:info@vojtaoliva.cz" && <TbMail className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />}
                                             <Text
-                                            type="cardHeading"
-                                            fontVariant="kanit"
-                                            className="uppercase">
+                                                type="cardHeading"
+                                                fontVariant="kanit"
+                                                className="uppercase">
                                                 {title}
                                             </Text>
                                         </Flex>
                                     </Cta>
+                                );
+                            })
+                        }
+                    </Flex>
+                    <Flex className="md:justify-evenly mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
+                        {
+                            [
+                                { key: "IČO", value: "21079820", },
+                                { key: "Adresa", value: "Freyova 236/5, 190 00, Praha 9 - Vysočany", },
+                                { key: "Provozní doba", value: "Každý den: 08:00 - 20:00", },
+                            ].map((item, idx) => {
+                                const { key, value } = item;
+
+                                return (
+                                    <Fragment key={idx}>
+                                        <Flex
+                                        type="flexCol"
+                                        className="md:justify-start md:items-start md:gap-(--spacing-mini) md:text-start">
+                                            <Text
+                                            type="cardHeading"
+                                            className="uppercase">
+                                                {key}
+                                            </Text>
+                                            <Text>
+                                                {value}
+                                            </Text>
+                                        </Flex>
+                                    </Fragment>
                                 );
                             })
                         }
