@@ -3,7 +3,7 @@ import {
 } from "react";
 import clsx from "clsx";
 
-import DefaultProps from "../types/DefaultProps";
+import type DefaultProps from "../types/DefaultProps";
 import Wrapper from "../components/Wrapper";
 import Relative from "../components/Relative";
 import Img from "../components/Img";
@@ -20,7 +20,7 @@ const MyOffer = ({
         <Fragment>
             <Wrapper
             className={clsx(className, "my-offer-section-component")}
-            id={id ? id : "my-offer-section-component"}>
+            id={id ? id : "nabidka"}>
                 <Relative className="min-h-screen">
                     <Img
                     fill
@@ -28,38 +28,43 @@ const MyOffer = ({
                     alt="Vojtěch Oliva při pohledu z Norských hor."
                     className="object-cover"
                     />
-                    <Absolute className="bg-black/40" />
+                    <Absolute className="bg-linear-to-tl from-black/50 to-black/40" />
                     <Absolute>
                         <Flex
                         type="flexCol"
-                        className="p-6 md:p-8 lg:p-10 h-full justify-center md:justify-end items-center text-white">
+                        className="mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) h-full justify-center items-center text-white">
                             <Flex
                             type="flexCol"
                             className="justify-center items-center text-center">
                                 <Text
                                 type="sectionHeading"
-                                className="max-w-3xl text-center">
-                                    Uvažujete o novém webu nebo o její modernizaci?
+                                fontVariant="playFairDisplay"
+                                textSpanning="nebo o její modernizaci?"
+                                className="uppercase max-w-3xl text-center">
+                                    Uvažujete o novém webu
                                 </Text>
                                 <Text>
-                                    Zavolejte mi nebo napište, i Váš projekt posuneme jinam.
+                                    Zavolejte nebo napište mi, a domluvíme se i na Vašem projektu a jeho řešení.
                                 </Text>
                             </Flex>
-                            <Flex className="mt-2.5 md:mt-3 lg:mt-4 w-full">
+                            <Flex className="mt-(--spacing-xs) w-full">
                                 {
                                     [
                                         {
-                                            href: "#sluzby",
-                                            text: "Nabídka služeb"
+                                            href: "tel:+420737007626",
+                                            text: "Zavolejte",
+                                            textSpanning: "i teď",
                                         },
                                         {
                                             href: "#kontakt",
-                                            text: "Zadat poptávku"
+                                            text: "Nový",
+                                            textSpanning: "projekt?",
                                         },
                                     ].map((link, idx) => {
                                         const {
                                             href,
-                                            text
+                                            text,
+                                            textSpanning
                                         } = link;
 
                                         return (
@@ -68,7 +73,11 @@ const MyOffer = ({
                                             variant={idx === 0 ? "secondary" : "primary"}
                                             href={href}
                                             className="w-full">
-                                                <Text type="boldText">
+                                                <Text
+                                                type="cardHeading"
+                                                fontVariant="kanit"
+                                                textSpanning={textSpanning}
+                                                className="uppercase">
                                                     {text}
                                                 </Text>
                                             </Cta>

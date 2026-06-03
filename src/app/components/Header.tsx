@@ -17,14 +17,21 @@ type Props = {
 const Header = () => {
     return (
         <Fragment>
-            <Flex
-            type="flexRowOnly"
-            className="justify-center items-center">
-                <Relative className="z-50">
-                    <Absolute>
+            <Relative className="z-50">
+                <Absolute className="p-(--spacing-xs) md:p-(--spacing-sm)">
+                    <Flex
+                    type="flexRowOnly"
+                    className="justify-between md:justify-evenly items-center">
+                        <Text
+                        type="cardHeading"
+                        fontVariant="greatVibes"
+                        textSpanning="Oliva"
+                        className="text-(--white-color)">
+                            Vojta
+                        </Text>
                         <Flex
                         type="flexRowOnly"
-                        className="p-2 md:p-2.5 hidden md:flex lg:p-4 justify-center items-center">
+                        className="p-(--spacing-xs) md:p-(--spacing-sm) lg:p-(--spacing-md) hidden md:flex justify-center items-center">
                             {
                                 [
                                     {
@@ -39,10 +46,10 @@ const Header = () => {
                                         href: "#projekty",
                                         text: "Projekty",
                                     },
-                                    {
-                                        href: "#reference",
-                                        text: "Reference",
-                                    },
+                                    // {
+                                    //     href: "#reference",
+                                    //     text: "Reference",
+                                    // },
                                     {
                                         href: "#o-mne",
                                         text: "O mně",
@@ -75,9 +82,9 @@ const Header = () => {
                             })
                             }
                         </Flex>
-                    </Absolute>
-                </Relative>
-            </Flex>
+                    </Flex>
+                </Absolute>
+            </Relative>
         </Fragment>
     );
 };

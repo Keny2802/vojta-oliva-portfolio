@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Fragment
 } from "react";
@@ -8,34 +10,52 @@ import Text from "../components/Text";
 import Seperator from "../components/Seperator";
 import Cta from "../components/Cta";
 import Img from "../components/Img";
+import HighlightText from "../components/HighlightText";
 
 const AboutMe = () => {
     return (
         <Fragment>
-            <Wrapper className="p-4 md:p-6 lg:p-8 bg-white shadow-lg">
+            <Wrapper className="mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) shadow-lg"
+            id="o-mne">
                 <Flex
                 type="flexRowReverseCombo"
                 className="justify-between">
-                    <Flex type="flexCol">
-                        <Text type="boldText">
+                    <Flex type="flexCol"
+                    className="md:gap-(--spacing-md)">
+                        {/* <Text type="boldText">
                             Webový Vývojář - Vojtěch Oliva | www.vojtaoliva.cz
                         </Text>
-                        <Seperator />
-                        <Text type="sectionHeading">
-                            Kdo co jsem a co dělám?
-                        </Text>
+                        <Seperator /> */}
+                        {/* <Text
+                        type="sectionHeading"
+                        fontVariant="playFairDisplay"
+                        textSpanning="a co dělám?"
+                        className="uppercase">
+                            Kdo co jsem
+                        </Text> */}
+                        <HighlightText
+                        type="sectionHeading"
+                        fontVariant="playFairDisplay"
+                        textSpanning="a co dělám"
+                        text="Kdo jsem"
+                        className="uppercase"
+                        />
                         <Flex
                         type="flexCol"
-                        className="mt-2.5 md:mt-3 lg:mt-4">
+                        className="md:-mt-(--spacing-xs) ">
                             {
                                 [
-                                    "Jsem člověk, který mluví s klienty mile a snaží se jim porozumět a hlavně mluvím s nimi lidským jazykem.",
-                                    "Jsem webový vývojář z Prahy, se kterým se dohodnete na čemkoliv, nejvíce mi záleží, aby se klient ve spolupráci se mnou cítil komfortně.",
+                                    // "Jsem člověk, který mluví s klienty mile a snaží se jim porozumět a hlavně mluvím s nimi lidským jazykem.",
+                                    // "Jsem webový vývojář z Prahy, se kterým se dohodnete na čemkoliv, nejvíce mi záleží, aby se klient ve spolupráci se mnou cítil komfortně.",
+                                    "Jsem nadšený webový vývojař z Prahy, který má rád tvoření webových prezentací a komplexnějších webových aplikací jako jsou E-shopy.",
+                                    "Co mě, ale nejvíce baví začít nový projekt s klientem a dokončit jej do úplného konce.",
+                                    "Když nepracuji, tak nejraději cestuji kdekoliv po Evropě."
                                 ].map((text, idx) => {
                                     return (
-                                        <Text key={idx}>
-                                            {text}
-                                        </Text>
+                                        <HighlightText
+                                        key={idx}
+                                        text={text}
+                                        />
                                     );
                                 })
                             }
@@ -47,8 +67,12 @@ const AboutMe = () => {
                             </Text>
                         </Flex>
                         <Cta href="#kontakt">
-                            <Text type="boldText">
-                                Získat cenovou nabídku
+                            <Text
+                            type="cardHeading"
+                            fontVariant="kanit"
+                            textSpanning="nabídku"
+                            className="uppercase">
+                                Získat cenovou
                             </Text>
                         </Cta>
                     </Flex>

@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+:root {
+    --spacing-mini: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 48px;
+
+    --orange-color: #E5532D;
+    --black-color: #000000;
+    --black-color-2: #242424;
+    --white-color: #FFFFFF;
+    --gray-color-1: #5F6F65;
+}

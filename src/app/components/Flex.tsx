@@ -20,10 +20,10 @@ const Flex = ({
     children
 } : props) => {
     const types = {
-        flexRowOnly: "flex items-center gap-2 md:gap-4 lg:gap-6",
-        flexRowCombo: "flex items-center flex-col lg:flex-row gap-2 md:gap-4 lg:gap-6",
-        flexRowReverseCombo: "flex items-center flex-col-reverse lg:flex-row gap-2 md:gap-4 lg:gap-6",
-        flexCol: "flex flex-col gap-2 md:gap-3 lg:gap-4"
+        flexRowOnly: "flex items-center gap-(--spacing-xs) md:gap-(--spacing-sm) lg:gap-(--spacing-md)",
+        flexRowCombo: "flex items-center flex-col lg:flex-row gap-(--spacing-xs) md:gap-(--spacing-sm) lg:gap-(--spacing-md)",
+        flexRowReverseCombo: "flex items-center flex-col-reverse lg:flex-row gap-(--spacing-xs) md:gap-(--spacing-sm) lg:gap-(--spacing-md)",
+        flexCol: "flex flex-col gap-(--spacing-sm)"
     };
 
     return (

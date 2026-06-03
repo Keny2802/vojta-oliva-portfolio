@@ -1,4 +1,8 @@
+"use client";
+
 import {
+    useState,
+    useEffect,
     Fragment
 } from "react";
 import {
@@ -16,34 +20,50 @@ import Cta from "../components/Cta";
 import Lnk from "../components/Lnk";
 
 const Hero = () => {
+    const [isResizing, setIsResizing] = useState<boolean>(false);
+
+    useEffect(() => {
+        const setToResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsResizing(true);
+            } else {
+                setIsResizing(false);
+            };
+        };
+
+        window.addEventListener("resize", setToResize);
+
+        return () => window.removeEventListener("resize", setToResize);
+    }, [isResizing]);
+
     return (
         <Fragment>
-            <Relative className="min-h-screen bg-white shadow-lg">
+            <Relative
+            className="min-h-screen bg-white shadow-lg"
+            id="domu">
                 <Img
                 fill
                 src="/assets/me-6.avif"
                 alt="Tvořím weby pro řemeslníky a menší firmy - Vojtěch Oliva | vojtaoliva.cz"
                 // p-2.5 md:p-4 lg:p-6 rounded-2xl
-                // loading="eager"
+                loading="eager"
                 type="hero"
                 className="object-cover"
                 />
-                <Absolute className="bg-black/50" />
-                <Absolute
-                variant="bottomZero"
-                className="bottom-25 right-5 cursor-pointer z-50">
-                    <Flex type="flexCol">
+                <Absolute className="bg-linear-to-t from-black/40 to-black/75" />
+                <Wrapper className="fixed bottom-8 right-5 z-10">
+                    <Flex type={isResizing ? "flexCol" : "flexRowOnly"}>
                         <Lnk
                         href="mailto:info@vojtaoliva.cz"
-                        className="p-4 bg-[#E5532D] rounded-full mx-auto cursor-pointer">
+                        className="p-(--spacing-xs) md:p-(--spacing-sm) bg-[#E5532D] border border-white/25 rounded-full mx-auto cursor-pointer">
                             <LuAtSign
                             strokeWidth={2}
-                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white cursor-pointer" />
+                            className="w-8 h-8 text-white cursor-pointer" />
                         </Lnk>
                         <Lnk
                         href="https://wa.me/420737007626"
                         target="_blank"
-                        className="p-4 bg-white rounded-full mx-auto">
+                        className="p-(--spacing-xs) md:p-(--spacing-sm) bg-white border border-white/25 rounded-full mx-auto">
                             <Img
                             width={32}
                             height={32}
@@ -52,44 +72,55 @@ const Hero = () => {
                             />
                         </Lnk>
                     </Flex>
-                </Absolute>
-                <Absolute variant="topZero" className="p-4 md:p-6 lg:p-8 bg-[#E5532D] rounded-br-full left-0" />
-                <Absolute variant="topZero" className="p-4 md:p-6 lg:p-8 bg-[#E5532D] rounded-bl-full right-0" />
-                <Absolute variant="bottomZero" className="p-4 md:p-6 lg:p-8 bg-[#E5532D] rounded-tr-full left-0" />
-                <Absolute variant="bottomZero" className="p-4 md:p-6 lg:p-8 bg-[#E5532D] rounded-tl-full right-0" />
-                <Absolute className="flex justify-start items-center text-white p-6 md:p-8 lg:p-10">
+                </Wrapper>
+                <Absolute variant="topZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-br-full left-0" />
+                <Absolute variant="topZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-bl-full right-0" />
+                <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tr-full left-0" />
+                <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tl-full right-0" />
+                <Absolute className="flex justify-start items-center text-white mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg)">
                     <Flex
                     type="flexCol"
-                    className="justify-center md:max-w-[550px]">
-                        <Wrapper>
-                            <Text>
-                                Vojtěch Oliva | Webový vývojář
-                            </Text>
-                            <Seperator className="mt-2.5" />
+                    className="justify-center md:max-w-[600px]">
+                        <Wrapper className="mt-(--spacing-xs) md:mt-(--spacing-sm)">
+                            <Flex type="flexRowOnly">
+                                <Text
+                                type="boldText"
+                                fontVariant="kanit"
+                                textSpanning="| Vojta Oliva"
+                                className="uppercase">
+                                    Nadšený webový vývojář z Prahy
+                                </Text>
+                            </Flex>
+                            <Seperator className="mt-(--spacing-sm)" />
                         </Wrapper>
                         <Text
                         type="heroHeading"
+                        fontVariant="playFairDisplay"
+                        textSpanning="a živnotsníky."
                         className="uppercase">
-                            Tvořím weby pro řemeslníky a menší firmy.
+                            Tvořím weby pro menší firmy
                         </Text>
                         <Text>
-                            Specializuji se převážně na vývoj webových prezentací a více stránkových webů pro Váš podnik.
+                            Při vývoji webových stránek kladu důraz na minimalismus, čistotu a celkový vzhled a funčnost webu.
                         </Text>
                         <Flex>
                             {
                                 [
                                     {
                                         href: "#sluzby",
-                                        text: "Nabídka služeb"
+                                        text: "Nabídka",
+                                        textSpanning: "služeb",
                                     },
                                     {
                                         href: "#kontakt",
-                                        text: "Zadat poptávku"
+                                        text: "Zadat",
+                                        textSpanning: "poptávku",
                                     },
                                 ].map((link, idx) => {
                                     const {
                                         href,
-                                        text
+                                        text,
+                                        textSpanning
                                     } = link;
 
                                     return (
@@ -98,7 +129,11 @@ const Hero = () => {
                                         variant={idx === 0 ? "secondary" : "primary"}
                                         href={href}
                                         className="w-full">
-                                            <Text type="boldText">
+                                            <Text
+                                            type="cardHeading"
+                                            fontVariant="kanit"
+                                            textSpanning={textSpanning}
+                                            className="uppercase">
                                                 {text}
                                             </Text>
                                         </Cta>
