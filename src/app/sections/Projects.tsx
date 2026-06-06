@@ -73,8 +73,9 @@ const Projects:FC<DefaultAttributes> = ({
                                                         <Text className="max-w-[450px]">
                                                             {description}
                                                         </Text>
-                                                        <Text type="boldText">
-                                                            Podívat se na ukázku <span className="text-(--black-color)">{title}</span>
+                                                        <Text
+                                                        type="boldText">
+                                                            Podívat se na ukázku <span className="border-b border-white/25 font-light">{title}</span>
                                                         </Text>
                                                         {/* <Flex type="flexRowOnly">
                                                             <Lnk href="#sluzby">

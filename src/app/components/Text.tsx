@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 interface props {
     ref?: React.RefObject<HTMLHeadingElement | HTMLParagraphElement | null>;
-    type?: "heroHeading" | "cardHeading" | "sectionHeading" | "boldText" | "bodyText";
+    type?: "heroHeading" | "cardHeading" | "sectionHeading" | "boldText" | "bodyText" | "smallBodyText";
     fontVariant?: "inter" | "playFairDisplay" | "kanit" | "baloo" | "greatVibes",
     textSpanning?: string;
     className?: string;
@@ -41,7 +41,8 @@ const Text = ({
       sectionHeading: "text-3xl md:text-4xl lg:text-5xl font-extrabold section-heading-component",
       cardHeading: "text-2xl md:text-3xl font-bold card-heading-component",
       boldText: "text-xl font-semibold",
-      bodyText: "text-base md:text-[16.5px] lg:text-[16.75px] md:max-w-3xl body-text-component"
+      bodyText: "text-base md:text-[16.5px] lg:text-[16.75px] md:max-w-3xl body-text-component",
+      smallBodyText: "text-sm md:text-[15px] small-body-text-component",
   };
 
   const fonts:Font = {
@@ -108,6 +109,17 @@ const Text = ({
         </p>
     );
   } else if ( type === "bodyText" ) {
+    return (
+        <p
+        { ...( ref && { ref: ref } ) }
+        className={clsx(className, `${textVariants[type]}`)}
+        style={fonts[fontVariant]}>
+            {children}
+            {" "}
+            { textSpanning && ( <span className="font-light">{textSpanning}</span> ) }
+        </p>
+    );
+  } else if ( type === "smallBodyText" ) {
     return (
         <p
         { ...( ref && { ref: ref } ) }

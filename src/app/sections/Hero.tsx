@@ -19,6 +19,8 @@ import Seperator from "../components/Seperator";
 import Cta from "../components/Cta";
 import Lnk from "../components/Lnk";
 import UpAnimation from "../components/animations/UpAnimation";
+import { Chat } from "openai/resources";
+import Chatbot from "../components/Chatbot";
 
 const Hero = () => {
     const [isResizing, setIsResizing] = useState<boolean>(false);
@@ -54,6 +56,7 @@ const Hero = () => {
                 <Absolute className="bg-linear-to-t from-black/40 to-black/75" />
                 <Wrapper className="fixed bottom-8 right-5 z-10">
                     <Flex type={isResizing ? "flexCol" : "flexRowOnly"}>
+                        <Chatbot />
                         <Lnk
                         href="mailto:info@vojtaoliva.cz"
                         className="p-(--spacing-xs) md:p-(--spacing-sm) bg-[#E5532D] border border-white/25 rounded-full mx-auto cursor-pointer">
