@@ -7,6 +7,7 @@ import Flex from "../components/Flex";
 import Text from "../components/Text";
 import Cta from "../components/Cta";
 import Wrapper from "../components/Wrapper";
+import UpAnimation from "../components/animations/UpAnimation";
 
 const Contact: FC<DefaultAttributes> = ({
     ...attrs
@@ -17,7 +18,8 @@ const Contact: FC<DefaultAttributes> = ({
                 {...attrs}
                 sectionBackground="secondary"
                 id="kontakt">
-                <Flex
+                <UpAnimation>
+                    <Flex
                     type="flexCol"
                     className="justify-center items-center text-center">
                     <Text
@@ -75,7 +77,7 @@ const Contact: FC<DefaultAttributes> = ({
                             })
                         }
                     </Flex>
-                    <Flex className="md:justify-evenly mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
+                    <Flex className="kmd:justify-evenly mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
                         {
                             [
                                 { key: "IČO", value: "21079820", },
@@ -104,6 +106,7 @@ const Contact: FC<DefaultAttributes> = ({
                         }
                     </Flex>
                 </Flex>
+                </UpAnimation>
             </Section>
         </Fragment>
     );

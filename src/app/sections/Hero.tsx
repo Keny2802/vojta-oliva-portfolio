@@ -18,6 +18,7 @@ import Text from "../components/Text";
 import Seperator from "../components/Seperator";
 import Cta from "../components/Cta";
 import Lnk from "../components/Lnk";
+import UpAnimation from "../components/animations/UpAnimation";
 
 const Hero = () => {
     const [isResizing, setIsResizing] = useState<boolean>(false);
@@ -78,70 +79,72 @@ const Hero = () => {
                 <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tr-full left-0" />
                 <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tl-full right-0" />
                 <Absolute className="flex justify-start items-center text-white mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg)">
-                    <Flex
-                    type="flexCol"
-                    className="justify-center md:max-w-[600px]">
-                        <Wrapper className="mt-(--spacing-xs) md:mt-(--spacing-sm)">
-                            <Flex type="flexRowOnly">
-                                <Text
-                                type="boldText"
-                                fontVariant="kanit"
-                                textSpanning="| Vojta Oliva"
-                                className="uppercase">
-                                    Nadšený webový vývojář z Prahy
-                                </Text>
-                            </Flex>
-                            <Seperator className="mt-(--spacing-sm)" />
-                        </Wrapper>
-                        <Text
-                        type="heroHeading"
-                        fontVariant="playFairDisplay"
-                        textSpanning="a živnotsníky."
-                        className="uppercase">
-                            Tvořím weby pro menší firmy
-                        </Text>
-                        <Text>
-                            Při vývoji webových stránek kladu důraz na minimalismus, čistotu a celkový vzhled a funčnost webu.
-                        </Text>
-                        <Flex>
-                            {
-                                [
-                                    {
-                                        href: "#sluzby",
-                                        text: "Nabídka",
-                                        textSpanning: "služeb",
-                                    },
-                                    {
-                                        href: "#kontakt",
-                                        text: "Zadat",
-                                        textSpanning: "poptávku",
-                                    },
-                                ].map((link, idx) => {
-                                    const {
-                                        href,
-                                        text,
-                                        textSpanning
-                                    } = link;
+                    <UpAnimation>
+                        <Flex
+                        type="flexCol"
+                        className="justify-center md:max-w-[600px]">
+                            <Wrapper className="mt-(--spacing-xs) md:mt-(--spacing-sm)">
+                                <Flex type="flexRowOnly">
+                                    <Text
+                                    type="boldText"
+                                    fontVariant="kanit"
+                                    textSpanning="| Vojta Oliva"
+                                    className="uppercase">
+                                        Nadšený webový vývojář z Prahy
+                                    </Text>
+                                </Flex>
+                                <Seperator className="mt-(--spacing-sm)" />
+                            </Wrapper>
+                            <Text
+                            type="heroHeading"
+                            fontVariant="playFairDisplay"
+                            textSpanning="a živnotsníky."
+                            className="uppercase">
+                                Tvořím weby pro menší firmy
+                            </Text>
+                            <Text>
+                                Při vývoji webových stránek kladu důraz na minimalismus, čistotu a celkový vzhled a funčnost webu.
+                            </Text>
+                            <Flex>
+                                {
+                                    [
+                                        {
+                                            href: "#sluzby",
+                                            text: "Nabídka",
+                                            textSpanning: "služeb",
+                                        },
+                                        {
+                                            href: "#kontakt",
+                                            text: "Zadat",
+                                            textSpanning: "poptávku",
+                                        },
+                                    ].map((link, idx) => {
+                                        const {
+                                            href,
+                                            text,
+                                            textSpanning
+                                        } = link;
 
-                                    return (
-                                        <Cta
-                                        key={idx}
-                                        variant={idx === 0 ? "secondary" : "primary"}
-                                        href={href}
-                                        className="w-full">
-                                            <Text
-                                            type="cardHeading"
-                                            fontVariant="kanit"
-                                            textSpanning={textSpanning}
-                                            className="uppercase">
-                                                {text}
-                                            </Text>
-                                        </Cta>
-                                    );
-                                })
-                            }
+                                        return (
+                                            <Cta
+                                            key={idx}
+                                            variant={idx === 0 ? "secondary" : "primary"}
+                                            href={href}
+                                            className="w-full">
+                                                <Text
+                                                type="cardHeading"
+                                                fontVariant="kanit"
+                                                textSpanning={textSpanning}
+                                                className="uppercase">
+                                                    {text}
+                                                </Text>
+                                            </Cta>
+                                        );
+                                    })
+                                }
+                            </Flex>
                         </Flex>
-                    </Flex>
+                    </UpAnimation>
                 </Absolute>
             </Relative>
         </Fragment>

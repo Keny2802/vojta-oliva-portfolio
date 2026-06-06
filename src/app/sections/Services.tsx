@@ -3,6 +3,7 @@ import { TbWorldWww, TbBuildingStore, TbShoppingBag } from "react-icons/tb";
 
 import Wrapper from "../components/Wrapper";
 import Section from "../components/Section";
+import UpAnimation from "../components/animations/UpAnimation";
 import Flex from "../components/Flex";
 import Text from "../components/Text";
 import Lnk from "../components/Lnk";
@@ -11,23 +12,25 @@ const Services = () => {
     return (
         <Fragment>
             <Section id="sluzby">
-                <Flex type="flexCol">
-                    <Text
-                    type="boldText"
-                    className="uppercase">
-                        Služby
-                    </Text>
-                    <Text
-                    type="sectionHeading"
-                    fontVariant="playFairDisplay"
-                    textSpanning="webové služby"
-                    className="uppercase">
-                        Komplexní
-                    </Text>
-                    <Text>
-                        Ať jste řemeslník, jednotlivec nebo firma, já se o Váš projekt postarám jako o svůj.
-                    </Text>
-                </Flex>
+                <UpAnimation>
+                    <Flex type="flexCol">
+                        <Text
+                        type="boldText"
+                        className="uppercase">
+                            Služby
+                        </Text>
+                        <Text
+                        type="sectionHeading"
+                        fontVariant="playFairDisplay"
+                        textSpanning="webové služby"
+                        className="uppercase">
+                            Komplexní
+                        </Text>
+                        <Text>
+                            Ať jste řemeslník, jednotlivec nebo firma, já se o Váš projekt postarám jako o svůj.
+                        </Text>
+                    </Flex>
+                </UpAnimation>
                 <Flex className="justify-between items-center mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
                     {
                         [
@@ -38,49 +41,53 @@ const Services = () => {
                             const { title, price, description } = item;
                             return (
                                 <Fragment key={idx}>
-                                    <Wrapper className="group bg-(--white-color) text-(--black-color) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) rounded-4xl">
-                                        <Flex type="flexCol">
-                                            { title === "Malý projekt" && <TbWorldWww className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
-                                            { title === "Firemní web" && <TbBuildingStore className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
-                                            { title === "E-SHOP" && <TbShoppingBag className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
-                                            <Text
-                                            type="boldText"
-                                            fontVariant="kanit"
-                                            className="uppercase">
-                                                {title}
-                                            </Text>
-                                            <Text
-                                            type="cardHeading"
-                                            className="whitespace-nowrap">
-                                                {price}
-                                            </Text>
-                                            <Wrapper className="border-t border-(--gray-color-1)" />
-                                            <Text>
-                                                {description}
-                                            </Text>
-                                            {/* <Wrapper className="border-t border-(--gray-color-1)" /> */}
-                                            <Lnk href="#kontakt"
-                                            >
+                                    <UpAnimation>
+                                        <Wrapper className="group bg-(--white-color) text-(--black-color) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) rounded-4xl overflow-hidden relative cursor-pointer">
+                                            <Flex type="flexCol" className="transition-transform duration-300 ease-in-out group-hover:scale-110">
+                                                { title === "Malý projekt" && <TbWorldWww className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
+                                                { title === "Firemní web" && <TbBuildingStore className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
+                                                { title === "E-SHOP" && <TbShoppingBag className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
                                                 <Text
                                                 type="boldText"
-                                                fontVariant="baloo"
-                                                textSpanning="více"
-                                                className="text-(--black-color-2) uppercase">
-                                                    Zjistit
+                                                fontVariant="kanit"
+                                                className="uppercase">
+                                                    {title}
                                                 </Text>
-                                            </Lnk>
-                                        </Flex>
-                                    </Wrapper>
+                                                <Text
+                                                type="cardHeading"
+                                                className="whitespace-nowrap">
+                                                    {price}
+                                                </Text>
+                                                <Wrapper className="border-t border-(--gray-color-1)" />
+                                                <Text>
+                                                    {description}
+                                                </Text>
+                                                {/* <Wrapper className="border-t border-(--gray-color-1)" /> */}
+                                                <Lnk href="#kontakt"
+                                                >
+                                                    <Text
+                                                    type="boldText"
+                                                    fontVariant="baloo"
+                                                    textSpanning="více"
+                                                    className="text-(--black-color-2) uppercase">
+                                                        Zjistit
+                                                    </Text>
+                                                </Lnk>
+                                            </Flex>
+                                        </Wrapper>
+                                    </UpAnimation>
                                 </Fragment>
                             );
                         })
                     }
                 </Flex>
-                <Flex className="justify-center items-center text-center mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
-                    <Text>
-                        Ceny jsou pouze orientační, přesnou cenu vždy určím, po bezplatné detailní konzultaci.
-                    </Text>
-                </Flex>
+                <UpAnimation>
+                    <Flex className="justify-center items-center text-center mt-(--spacing-sm) md:mt-(--spacing-md) lg:mt-(--spacing-lg)">
+                        <Text>
+                            Ceny jsou pouze orientační, přesnou cenu vždy určím, po bezplatné detailní konzultaci.
+                        </Text>
+                    </Flex>
+                </UpAnimation>
             </Section>
         </Fragment>
     );
