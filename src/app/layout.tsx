@@ -57,6 +57,7 @@ const fontGreatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://www.vojtaoliva.cz"),
     title: "Vojta Oliva | Webový vývojář z Prahy",
     description:
         "Jsem Vojta Oliva, webový vývojář z Prahy. Vytvářím moderní webové stránky, firemní prezentace, e-shopy a webové aplikace s důrazem na rychlost, SEO a kvalitní uživatelský zážitek.",

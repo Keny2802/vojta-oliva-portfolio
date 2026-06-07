@@ -1,14 +1,16 @@
 "use client";
 
-import { type FC, useState, FormEvent, Fragment, ChangeEvent, KeyboardEvent, } from "react";
+import { type FC, useState, type ChangeEvent, type KeyboardEvent, Fragment } from "react";
 import { TbX } from "react-icons/tb";
 import { TbSend } from "react-icons/tb";
+import clsx from "clsx";
 
 import type DefaultAttributes from "../types/DefaultAttributes";
 import Wrapper from "./Wrapper";
 import Img from "./Img";
 import Flex from "./Flex";
 import Text from "./Text";
+import Relative from "./Relative";
 
 const Chatbot:FC<DefaultAttributes> = ({
     ...attrs
@@ -17,6 +19,8 @@ const Chatbot:FC<DefaultAttributes> = ({
     const [isChatPrompt, setChatPrompt] = useState<string>("");
     // const [isUserChatPrompt, setUserChatPrompt] = useState<string>("");
     const [isChatResponse, setChatResponse] = useState<string>("");
+    const [isPromptMessageDeleted, setPromptMessageDelete] = useState<boolean>(false);
+    const [isResponseMessageDeleted, setResponseMessageDelete] = useState<boolean>(false);
 
     const handleChat = async (e: ChangeEvent<HTMLFormElement>) => {
        e.preventDefault();
@@ -33,7 +37,9 @@ const Chatbot:FC<DefaultAttributes> = ({
 
             if (response.ok) {
                 setChatResponse(body.result);
-                setChatPrompt("");
+                // setChatPrompt("");
+                setPromptMessageDelete(false);
+                setResponseMessageDelete(false);
             } else {
                 console.error(body.error);
             };
@@ -120,11 +126,19 @@ const Chatbot:FC<DefaultAttributes> = ({
                                 onSubmit={handleChat}
                                 className="p-(--spacing-sm)">
                                     <Flex type="flexCol">
-                                        <Wrapper className="flex flex-col gap-(--spacing-xs)">
+                                        <Wrapper className="flex flex-col gap-(--spacing-xs) max-h-[180px] overflow-auto">
                                             {
                                                 isChatPrompt && (
                                                     <Fragment>
-                                                        <Wrapper className="bg-(--orange-color) text-(--white-color) p-(--spacing-sm) rounded-2xl">
+                                                        <Wrapper className={clsx(isPromptMessageDeleted ? "hidden" : "static", "bg-(--orange-color) text-(--white-color) p-(--spacing-sm) rounded-2xl")}>
+                                                            <Flex
+                                                            type="flexRowOnly"
+                                                            className="justify-end">
+                                                                <TbX
+                                                                className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 cursor-pointer"
+                                                                onClick={() => setPromptMessageDelete(true)}
+                                                                />
+                                                            </Flex>
                                                             <Text type="smallBodyText">
                                                                 Vy: {isChatPrompt}
                                                             </Text>
@@ -135,7 +149,15 @@ const Chatbot:FC<DefaultAttributes> = ({
                                             {
                                                 isChatResponse && (
                                                     <Fragment>
-                                                        <Wrapper className="bg-[#F1F5F9] p-(--spacing-sm) rounded-2xl">
+                                                        <Wrapper className={clsx(isResponseMessageDeleted ? "hidden" : "static", "bg-[#F1F5F9] p-(--spacing-sm) rounded-2xl")}>
+                                                            <Flex
+                                                            type="flexRowOnly"
+                                                            className="justify-end">
+                                                                <TbX
+                                                                className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 cursor-pointer"
+                                                                onClick={() => setResponseMessageDelete(true)}
+                                                                />
+                                                            </Flex>
                                                             <Text type="smallBodyText">
                                                                 AI Chat: {isChatResponse}
                                                             </Text>
@@ -144,18 +166,29 @@ const Chatbot:FC<DefaultAttributes> = ({
                                                 )
                                             }
                                         </Wrapper>
-                                        <Flex type="flexRowOnly"
+                                        <Flex
+                                        type="flexRowOnly"
                                         className="-mt-(--spacing-xs)">
-                                            <textarea
-                                            value={isChatPrompt}
-                                            // onKeyDown={detectKeyboardKeys}
-                                            onChange={(e) => {
-                                                setChatPrompt(e.target.value);
-                                                // setUserChatPrompt(e.target.value);
-                                            }}
-                                            // autoCapitalize="words"
-                                            placeholder="Napište nám zprávu"
-                                            className="bg-[#F1F5F9] w-full max-h-[100px] resize-none rounded-2xl p-(--spacing-xs) md:p-(--spacing-sm) focus:outline-none" />
+                                            <Relative className="w-full max-h-[100px] flex justify-between items-center">
+                                                <textarea
+                                                    value={isChatPrompt}
+                                                    // onKeyDown={detectKeyboardKeys}
+                                                    onChange={(e) => {
+                                                        setChatPrompt(e.target.value);
+                                                        // setUserChatPrompt(e.target.value);
+                                                    }}
+                                                    // autoCapitalize="words"
+                                                    placeholder="Napište nám zprávu"
+                                                    className="bg-[#F1F5F9] w-full max-h-[100px] resize-none rounded-2xl p-(--spacing-xs) md:p-(--spacing-sm) focus:outline-none" />
+                                                    {isChatPrompt && (
+                                                        <Fragment>
+                                                            <TbX
+                                                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 relative right-10 cursor-pointer"
+                                                            onClick={() => setChatPrompt("")}
+                                                            />
+                                                        </Fragment>
+                                                    )}
+                                            </Relative>
                                             {
                                                 isChatPrompt && (
                                                     <Fragment>
