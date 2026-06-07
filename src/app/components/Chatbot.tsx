@@ -89,7 +89,7 @@ const Chatbot:FC<DefaultAttributes> = ({
                 isChatVisible && (
                     <Fragment>
                         <Wrapper
-                        className="fixed right-5 bottom-5 bg-(--white-color) shadow-lg border border-white/25 w-[350px] max-w-[400px] min-h-[300px] h-[350px] md:h-[400px] max-h-[500px] z-[100] rounded-2xl">
+                        className="fixed right-5 bottom-5 bg-(--white-color) shadow-lg border border-white/25 w-[350px] max-w-[400px] min-h-[300px] h-[420px] md:h-[400px] max-h-[500px] z-[100] rounded-2xl">
                             <Flex
                             type="flexCol"
                             className="h-full justify-between">
