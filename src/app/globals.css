@@ -6,10 +6,47 @@
     --spacing-sm: 16px;
     --spacing-md: 32px;
     --spacing-lg: 48px;
+    --spacing-xl: 64px;
+    --spacing-2xl: 92px;
+
+    --spacing-extra-small: 150px;
+    --spacing-small: 300px;
+    --spacing-secondary-medium: 400px;
+    --spacing-medium: 450px;
+    --spacing-large: 600px;
+    --spacing-extra-large: 800px;
+    --spacing-2-extra-large: 1000px;
 
     --orange-color: #E5532D;
     --black-color: #000000;
     --black-color-2: #242424;
     --white-color: #FFFFFF;
     --gray-color-1: #5F6F65;
+}
+
+@theme {
+    --spacing-mini: var(--spacing-mini);
+    --spacing-xs: var(--spacing-xs);
+    --spacing-sm: var(--spacing-sm);
+    --spacing-md: var(--spacing-md);
+    --spacing-lg: var(--spacing-lg);
+    --spacing-xl: var(--spacing-xl);
+    --spacing-2xl: var(--spacing-2xl);
+
+    --spacing-extra-small: var(--spacing-extra-small);
+    --spacing-small: var(--spacing-small);
+    --spacing-secondary-medium: var(--spacing-secondary-medium);
+    --spacing-medium: var(--spacing-medium);
+    --spacing-large: var(--spacing-large);
+    --spacing-extra-large: var(--spacing-extra-large);
+    --spacing-2-extra-large: var(--spacing-2-extra-large);
+
+    --color-primary: var(--orange-color);
+    --color-secondary: var(--white-color);
+    --color-third: var(--black-color);
+    --color-fourth: var(--gray-color-1);
+}
+
+* {
+    outline: none;
 }

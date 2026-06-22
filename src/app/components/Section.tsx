@@ -8,8 +8,8 @@ const Section:FC<DefaultAttributes> = ({
     ...attrs
 }) => {
     const sectionBackgrounds = {
-        primary: "bg-(--orange-color) text-(--white-color)",
-        secondary: "bg-(--white-color) shadow-lg text-(--black-color)",
+        primary: "bg-primary text-secondary",
+        secondary: "bg-secondary shadow-lg text-(--black-color)",
     };
 
     return (
@@ -18,8 +18,8 @@ const Section:FC<DefaultAttributes> = ({
             {...attrs}
             className={clsx(
             sectionBackgrounds[sectionBackground],
-            sectionBackground === "secondary" && "mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md)",
-            "p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) section-component",
+            sectionBackground === "secondary" && "mt-xs md:mt-sm lg:mt-md",
+            "p-sm md:p-md lg:p-xl section-component",
             attrs.className
             )}>
                 {children}

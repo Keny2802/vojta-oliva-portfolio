@@ -1,8 +1,9 @@
 "use client";
 
-import { type FC, useState, type ChangeEvent, type KeyboardEvent, Fragment } from "react";
+import { type FC, useState, useEffect, type ChangeEvent, type KeyboardEvent, Fragment } from "react";
 import { TbX } from "react-icons/tb";
 import { TbSend } from "react-icons/tb";
+import { Command } from "lucide-react";
 import clsx from "clsx";
 
 import type DefaultAttributes from "../types/DefaultAttributes";
@@ -21,6 +22,24 @@ const Chatbot:FC<DefaultAttributes> = ({
     const [isChatResponse, setChatResponse] = useState<string>("");
     const [isPromptMessageDeleted, setPromptMessageDelete] = useState<boolean>(false);
     const [isResponseMessageDeleted, setResponseMessageDelete] = useState<boolean>(false);
+
+    useEffect(() => {
+        const detectKeyboardKeys = (e: globalThis.KeyboardEvent) => {
+            const { ctrlKey, shiftKey, key } = e;
+
+            if (ctrlKey && key === "Enter") {
+                setChatVisible(true);
+            };
+
+            if (isChatVisible && ctrlKey && shiftKey && key === "Enter") {
+                setChatVisible(false);
+            };
+        };
+
+        window.addEventListener("keydown", detectKeyboardKeys);
+        
+        return () => window.removeEventListener("keydown", detectKeyboardKeys);
+    }, [isChatVisible]);
 
     const handleChat = async (e: ChangeEvent<HTMLFormElement>) => {
        e.preventDefault();
@@ -48,43 +67,59 @@ const Chatbot:FC<DefaultAttributes> = ({
        };
     };
 
-    const detectKeyboardKeys = async (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        try {
-            const response = await fetch("/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ isChatPrompt }),
-            });
+    // const detectKeyboardKeys = async (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    //     try {
+    //         const response = await fetch("/api/chat", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({ isChatPrompt }),
+    //         });
 
-            const body = await response.json();
+    //         const body = await response.json();
 
-            if (response.ok) {
-                setChatResponse(body.result);
-                if (e.ctrlKey && e.key === "Enter") {
-                    setChatResponse(body.result);
-                    setChatPrompt("");
-                };
-            } else {
-                console.error(body.error);
-            };
-        } catch (error) {
-            console.error(error);
-        };
-    };
+    //         if (response.ok) {
+    //             setChatResponse(body.result);
+    //             if (e.ctrlKey && e.key === "Enter") {
+    //                 setChatResponse(body.result);
+    //                 setChatPrompt("");
+    //             };
+    //         } else {
+    //             console.error(body.error);
+    //         };
+    //     } catch (error) {
+    //         console.error(error);
+    //     };
+    // };
 
     return (
         <Fragment>
-            <Wrapper
-            onClick={() => setChatVisible(true)}
-            className="relative overflow-hidden cursor-pointer rounded-full">
-                <Img
-                width={65}
-                height={65}
-                src="/assets/me-1.avif"
-                alt="Vojtěch Oliva webový vývojář"
-                className="max-w-[65px] max-h-[65px] rounded-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-                />
-            </Wrapper>
+            <Flex
+            type="flexCol"
+            // type="flexRowOnly"
+            className="justify-start items-center">
+                <Wrapper
+                onClick={() => setChatVisible(true)}
+                className="relative overflow-hidden cursor-pointer rounded-full">
+                    <Img
+                    width={65}
+                    height={65}
+                    src="/assets/me-1.avif"
+                    alt="Vojtěch Oliva webový vývojář"
+                    className="max-w-[65px] max-h-[65px] rounded-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                    />
+                </Wrapper>
+                <Wrapper
+                onClick={() => setChatVisible(true)}
+                className="hidden md:inline-block p-(--spacing-mini) md:p-(--spacing-xs) bg-[#F1F5F6] rounded-full cursor-pointer">
+                    {/* rotate-90 */}
+                    <Flex type="flexRowOnly">
+                        <Command />
+                        <Text>
+                            Enter
+                        </Text>
+                    </Flex>
+                </Wrapper>
+            </Flex>
             {
                 isChatVisible && (
                     <Fragment>
@@ -201,6 +236,17 @@ const Chatbot:FC<DefaultAttributes> = ({
                                                 )
                                             }
                                         </Flex>
+                                        <Wrapper
+                                        onClick={() => setChatVisible(false)}
+                                        className="hidden md:inline-block p-(--spacing-mini) md:p-(--spacing-xs) bg-[#F1F5F6] rounded-full cursor-pointer">
+                                            <Flex
+                                            type="flexRowOnly"
+                                            className="justify-center items-center">
+                                                <Command />
+                                                <Text>Shift</Text>
+                                                <Text>Enter</Text>
+                                            </Flex>
+                                        </Wrapper>
                                     </Flex>
                                 </form>
                             </Flex>

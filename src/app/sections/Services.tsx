@@ -43,7 +43,7 @@ const Services = () => {
                                 <Fragment key={idx}>
                                     <UpAnimation>
                                         <Wrapper className="group bg-(--white-color) text-(--black-color) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) rounded-4xl overflow-hidden relative cursor-pointer">
-                                            <Flex type="flexCol" className="transition-transform duration-300 ease-in-out group-hover:scale-110">
+                                            <Flex type="flexCol" className="transition-transform duration-300 ease-in-out group-hover:scale-105">
                                                 { title === "Malý projekt" && <TbWorldWww className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
                                                 { title === "Firemní web" && <TbBuildingStore className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }
                                                 { title === "E-SHOP" && <TbShoppingBag className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-(--orange-color)" /> }

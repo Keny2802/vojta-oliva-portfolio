@@ -10,6 +10,7 @@ import AboutMe from "./sections/AboutMe";
 import MyOffer from "./sections/MyOffer";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import References from "./sections/References";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Hero />
       <Projects />
       <Services />
+      <References />
       <AboutMe />
       <MyOffer />
       <Contact />

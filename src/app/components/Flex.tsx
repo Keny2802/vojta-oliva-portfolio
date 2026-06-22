@@ -10,12 +10,14 @@ type props = {
     type?: "flexRowOnly" | "flexRowCombo" | "flexRowReverseCombo" | "flexCol";
     className?: string;
     id?: string;
+    style?: React.CSSProperties;
     children?: ReactNode;
 };
 
 const Flex = ({
     type = "flexRowCombo",
     className,
+    style,
     id,
     children
 } : props) => {
@@ -30,6 +32,7 @@ const Flex = ({
         <Fragment>
             <Wrapper
             className={clsx(className, `${types[type]} flex-component`)}
+            { ...( style && { style: style } ) }
             id={id}>
                 {children}
             </Wrapper>

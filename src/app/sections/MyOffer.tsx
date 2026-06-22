@@ -47,7 +47,7 @@ const MyOffer = ({
                                         <Text>
                                             Zavolejte nebo napište mi, a domluvíme se i na Vašem projektu a jeho řešení.
                                         </Text>
-                                        <Flex className="mt-(--spacing-xs) w-full">
+                                        <Flex className="mt-xs p-sm md:p-md lg:p-lg w-full">
                                             {
                                                 [
                                                     {

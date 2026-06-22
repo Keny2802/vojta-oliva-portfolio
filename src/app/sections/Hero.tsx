@@ -101,7 +101,7 @@ const Hero = () => {
                             <Text
                             type="heroHeading"
                             fontVariant="playFairDisplay"
-                            textSpanning="a živnotsníky."
+                            textSpanning="a živnostníky."
                             className="uppercase">
                                 Tvořím weby pro menší firmy
                             </Text>
