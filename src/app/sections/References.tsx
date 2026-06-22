@@ -123,7 +123,7 @@ const References:FC<DefaultAttributes> = ({
                                                 <Flex
                                                 type="flexRowOnly"
                                                 className="items-start">
-                                                    <CgProfile className="w-sm md:w-md lg:w-lg h-sm md:h-md lg:h-lg text-primary" />
+                                                    <CgProfile className="w-md md:w-md lg:w-lg h-md md:h-md lg:h-lg text-primary" />
                                                     <Wrapper className="flex flex-col gap-mini md:gap-xs">
                                                         <Text
                                                         type="cardHeading"
