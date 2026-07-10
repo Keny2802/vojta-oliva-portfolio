@@ -38,6 +38,7 @@ export const POST = async (req: Request) => {
                     - Webové prezentace již od 6.000 Kč do 8.000 Kč, jednostránkový web s libovolným počtem sekcí.
                     - Firemní web od 10.000 Kč do 12.000 Kč, větší projekt šitý na míru, s libovolným počtem sekcí a podstránek.
                     - Eshop na míru od 12.000 Kč do 18.000 Kč, webová aplikace, dle Vašich potřeb a požadavků.
+                    - K obchodním či kontaktním případů, vždy připiš mé kontaktní údaje.
 
                     V případě, že nevíš odpověď, tak si jí nevymýšlej, napiš odpověď něco ve stylu „Na tuto otázku, bohužel neznám odpověď“ nebo něco podobného neopakuj tuto stejnou odpověď pokaždé.
                     `,
