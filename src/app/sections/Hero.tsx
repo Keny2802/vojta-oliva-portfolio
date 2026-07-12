@@ -59,7 +59,7 @@ const Hero = () => {
                         <Chatbot />
                         <Lnk
                         href="mailto:info@vojtaoliva.cz"
-                        className="p-(--spacing-xs) md:p-(--spacing-sm) bg-[#E5532D] border border-white/25 rounded-full mx-auto cursor-pointer">
+                        className="p-xs md:p-sm bg-primary border border-white/25 rounded-full mx-auto cursor-pointer">
                             <LuAtSign
                             strokeWidth={2}
                             className="w-8 h-8 text-white cursor-pointer" />
@@ -67,7 +67,7 @@ const Hero = () => {
                         <Lnk
                         href="https://wa.me/420737007626"
                         target="_blank"
-                        className="p-(--spacing-xs) md:p-(--spacing-sm) bg-white border border-white/25 rounded-full mx-auto">
+                        className="p-xs md:p-sm bg-white border border-white/25 rounded-full mx-auto">
                             <Img
                             width={32}
                             height={32}
@@ -77,16 +77,16 @@ const Hero = () => {
                         </Lnk>
                     </Flex>
                 </Wrapper>
-                <Absolute variant="topZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-br-full left-0" />
-                <Absolute variant="topZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-bl-full right-0" />
-                <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tr-full left-0" />
-                <Absolute variant="bottomZero" className="p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg) bg-[#E5532D] rounded-tl-full right-0" />
-                <Absolute className="flex justify-start items-center text-white mt-(--spacing-xs) md:mt-(--spacing-sm) lg:mt-(--spacing-md) p-(--spacing-sm) md:p-(--spacing-md) lg:p-(--spacing-lg)">
+                <Absolute variant="topZero" className="p-sm md:p-md lg:p-lg bg-[#E5532D] rounded-br-full left-0" />
+                <Absolute variant="topZero" className="p-sm md:p-md lg:p-lg bg-[#E5532D] rounded-bl-full right-0" />
+                <Absolute variant="bottomZero" className="p-sm md:p-md lg:p-lg bg-[#E5532D] rounded-tr-full left-0" />
+                <Absolute variant="bottomZero" className="p-sm md:p-md lg:p-lg bg-[#E5532D] rounded-tl-full right-0" />
+                <Absolute className="flex justify-start items-center text-white mt-xs md:mt-sm lg:mt-md p-sm md:p-md lg:p-lg">
                     <UpAnimation>
                         <Flex
                         type="flexCol"
-                        className="justify-center md:max-w-[600px]">
-                            <Wrapper className="mt-(--spacing-xs) md:mt-(--spacing-sm)">
+                        className="justify-center md:max-w-150">
+                            <Wrapper className="mt-xs md:mt-sm">
                                 <Flex type="flexRowOnly">
                                     <Text
                                     type="boldText"
@@ -96,7 +96,7 @@ const Hero = () => {
                                         Nadšený webový vývojář z Prahy
                                     </Text>
                                 </Flex>
-                                <Seperator className="mt-(--spacing-sm)" />
+                                <Seperator className="mt-sm" />
                             </Wrapper>
                             <Text
                             type="heroHeading"
