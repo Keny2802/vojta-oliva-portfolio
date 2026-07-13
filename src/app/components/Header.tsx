@@ -25,7 +25,7 @@ const Header = () => {
 
     return (
         <Fragment>
-            <Relative className="z-50">
+            <Relative className="z-10">
                 <Absolute className="p-sm md:p-md">
                     <Flex
                     type="flexRowOnly"

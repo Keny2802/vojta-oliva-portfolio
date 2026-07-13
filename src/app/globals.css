@@ -45,6 +45,7 @@
     --color-secondary: var(--white-color);
     --color-third: var(--black-color);
     --color-fourth: var(--gray-color-1);
+    --color-fifth: var(--black-color-2);
 }
 
 * {
