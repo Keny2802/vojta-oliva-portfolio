@@ -68,30 +68,6 @@ const Chatbot:FC<DefaultAttributes> = ({
        };
     };
 
-    // const detectKeyboardKeys = async (e: KeyboardEvent<HTMLTextAreaElement>) => {
-    //     try {
-    //         const response = await fetch("/api/chat", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify({ isChatPrompt }),
-    //         });
-
-    //         const body = await response.json();
-
-    //         if (response.ok) {
-    //             setChatResponse(body.result);
-    //             if (e.ctrlKey && e.key === "Enter") {
-    //                 setChatResponse(body.result);
-    //                 setChatPrompt("");
-    //             };
-    //         } else {
-    //             console.error(body.error);
-    //         };
-    //     } catch (error) {
-    //         console.error(error);
-    //     };
-    // };
-
     return (
         <Fragment>
             <Flex

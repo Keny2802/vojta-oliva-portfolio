@@ -69,8 +69,8 @@ const References:FC<DefaultAttributes> = ({
         const currentPosition = e.touches[0].clientX;
         const direction = currentPosition - touchPosition;
 
-        if (direction < -10) setCurrentIndex(prev => prev === 0 ? references.length - 1 : prev - 1);
-        if (direction > 10) setCurrentIndex(prev => prev === references.length - 1 ? 0 : prev + 1);
+        if (direction < 10) setCurrentIndex(prev => prev === 0 ? references.length - 1 : prev - 1);
+        if (direction > -10) setCurrentIndex(prev => prev === references.length - 1 ? 0 : prev + 1);
 
         setTouchPosition(null);
     };
@@ -162,7 +162,7 @@ const Card:FC<CardProps> = ({
         <Fragment>
             <Wrapper
             // md:min-w-medium lg:min-w-large h-medium md:h-small md:min-h-secondary-medium md:max-h-medium
-            className={clsx(variants[variant], "p-sm md:p-md lg:p-lg min-w-full min-h-small md:h-extra-small md:min-h-small rounded-3xl references-section-component")}>
+            className={clsx(variants[variant], "p-sm md:p-md lg:p-lg min-w-full min-h-small h-secondary-medium max-h-large md:h-extra-small md:min-h-small rounded-3xl references-section-component")}>
                 {children}
             </Wrapper>
         </Fragment>
