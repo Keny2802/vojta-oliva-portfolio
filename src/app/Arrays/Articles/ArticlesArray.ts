@@ -4,7 +4,7 @@ import convertTextToURLSlug from "@/app/functions/convertTextToURLSlug/convertTe
 const ArticlesArray:ArticlesType[] = [
     {
         slug: convertTextToURLSlug("Proč se vyplatí modernizace Vašeho webu v roce 2026?"),
-        src: "/assets/clanky/proc-se-vyplati-modernizace-webu-v-roce-2026.jfif",
+        src: "/assets/clanky/proc-se-vyplati-modernizace-webu-v-roce-2026.avif",
         alt: "Proč se vyplatí modernizace Vašeho webu v roce 2026 - Vojtěch Oliva",
         heading: "Proč se vyplatí modernizace Vašeho webu v roce 2026?",
         subheadings: [
