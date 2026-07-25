@@ -16,6 +16,10 @@ const HeaderArray: HeaderType[] = [
         href: "#projekty",
         title: "Projekty",
     },
+    {
+        href: "#clanky",
+        title: "Články",
+    },
     // {
     //     href: "#reference",
     //     title: "Reference",

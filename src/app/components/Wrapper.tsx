@@ -7,8 +7,8 @@ import {
 } from "react";
 import clsx from "clsx";
 
-type Props = AllHTMLAttributes<HTMLDivElement | null> & {
-    ref?: RefObject<HTMLDivElement | null>;
+type Props = AllHTMLAttributes<HTMLDivElement | HTMLHeadingElement | null> & {
+    ref?: RefObject<HTMLDivElement | HTMLHeadingElement | null>;
     className?: string | ReactNode;
     id?: string;
     style?: React.CSSProperties;

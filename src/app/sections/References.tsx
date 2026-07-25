@@ -106,7 +106,7 @@ const References:FC<DefaultAttributes> = ({
                     <Wrapper
                     onTouchStart={touchStart}
                     onTouchMove={touchMove}
-                    className="w-full overflow-hidden">
+                    className="overflow-hidden">
                         <Flex
                         type="flexRowOnly"
                         className="mt-xs md:mt-sm lg:mt-lg transition-transform ease-in-out duration-300"

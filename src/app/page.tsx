@@ -5,6 +5,7 @@ import {
 import Header from "./components/Header";
 import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
+import Articles from "./sections/Articles/Articles";
 import Services from "./sections/Services";
 import AboutMe from "./sections/AboutMe";
 import MyOffer from "./sections/MyOffer";
@@ -18,6 +19,7 @@ const App = () => {
       <Header />
       <Hero />
       <Projects />
+      <Articles />
       <Services />
       <References />
       <AboutMe />

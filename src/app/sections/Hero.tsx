@@ -19,8 +19,8 @@ import Seperator from "../components/Seperator";
 import Cta from "../components/Cta";
 import Lnk from "../components/Lnk";
 import UpAnimation from "../components/animations/UpAnimation";
-import { Chat } from "openai/resources";
 import Chatbot from "../components/Chatbot";
+import convertTextToURLSlug from "../functions/convertTextToURLSlug/convertTextToURLSlug";
 
 const Hero = () => {
     const [isResizing, setIsResizing] = useState<boolean>(false);
@@ -38,6 +38,8 @@ const Hero = () => {
 
         return () => window.removeEventListener("resize", setToResize);
     }, [isResizing]);
+
+    console.log(convertTextToURLSlug("Proč se vyplatí modernizace Vašeho webu v roce 2026?"));
 
     return (
         <Fragment>
